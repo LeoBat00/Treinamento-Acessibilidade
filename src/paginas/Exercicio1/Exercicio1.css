@@ -69,6 +69,10 @@
     color: #626874;
 }
 
+.pagina-exercicio-1 .rotulo {
+    font-weight: 600;
+}
+
 .pagina-exercicio-1 .card-registro__nome {
     margin: 0 0 0.2rem;
     font-size: 1.05rem;
@@ -81,11 +85,12 @@
     background: none;
     border-radius: 100em;
     border: none;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    color: #1351b4;
 }
 
 .pagina-exercicio-1 .botao-baixar:hover {
@@ -112,11 +117,28 @@ body[data-theme='dark'] .pagina-exercicio-1 {
     color: #e7edf6;
 }
 
-body[data-theme='dark'] .pagina-exercicio-1 .card-registro,
 body[data-theme='dark'] .pagina-exercicio-1 .botao-baixar {
     border-color: #7d8591;
+    color: #fff333;
+}
+
+body[data-theme='dark'] .pagina-exercicio-1 .botao-baixar:hover {
+    background-image: linear-gradient(rgba(255, 243, 51, 0.2), rgba(255, 243, 51, 0.2));
 }
 
 body[data-theme='dark'] .pagina-exercicio-1 .card-registro {
+    border-color: #7d8591;
     background: #000000;
+}
+
+body[data-theme='dark'] .pagina-exercicio-1 .card-registro .texto-secundario {
+    color: #ffffff;
+}
+
+body[data-theme='dark'] .pagina-exercicio-1 .rotulo {
+    color: #ffffff;
+}
+
+body[data-theme='dark'] .pagina-exercicio-1 .titulo-secao {
+    color: #e7edf6;
 }

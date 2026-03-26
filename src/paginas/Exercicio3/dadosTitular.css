@@ -10,14 +10,22 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
+  margin: 0;
 }
 
 .sag-va-campo {
   font-size: 1em;
 }
 
-.sag-va-campo label {
+.sag-va-campo dt {
   font-weight: 600;
+  display: inline;
+  margin-right: 0.35em;
+}
+
+.sag-va-campo dd {
+  margin: 0;
+  display: inline;
 }
 
 body[data-theme='dark'] .sag-va-titulo-linha {

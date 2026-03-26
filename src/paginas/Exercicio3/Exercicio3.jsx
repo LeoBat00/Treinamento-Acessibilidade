@@ -20,46 +20,32 @@ function Exercicio3() {
       aria-labelledby="titulo-exercicio-3"
     >
       <h2 id="titulo-exercicio-3">Formulario de atualizacao de cadastro</h2>
-      <span className="subtitulo-pagina">
+      <p className="subtitulo-pagina">
         Esta tela simula um formulario com campos de entrada e selecao para
         revisar informacoes cadastrais e praticar ajustes de acessibilidade.
-      </span>
-      <div
-        style={{
-          backgroundColor: "#f5f5f5",
-          padding: "15px 20px",
-          borderBottom: "1px solid #e0e0e0",
-          color: "#2162adff",
-          fontSize: "16px",
-          textAlign: "center",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          minHeight: "50px",
-          width: "100%",
-        }}
-      >
-        <span style={{ fontWeight: "bold" }}>Alterar cadastro</span>
+      </p>
+      <div className="banner-cadastro" role="banner">
+        <h3 id="titulo-painel-cadastro">Alterar cadastro</h3>
       </div>
       <section
         className="painel-cadastro"
         aria-labelledby="titulo-painel-cadastro"
       >
         <h3 className="sag-va-titulo-linha">Informações do Titular</h3>
-        <div className="sag-va-campos">
+        <dl className="sag-va-campos">
           <div className="sag-va-campo">
-            <label>cpf: </label>
-            <span>380.124.997-20</span>
+            <dt>CPF</dt>
+            <dd>380.124.997-20</dd>
           </div>
           <div className="sag-va-campo">
-            <label>Nome: </label>
-            <span>ADILSON GOMES DA ROCHA</span>
+            <dt>Nome</dt>
+            <dd>ADILSON GOMES DA ROCHA</dd>
           </div>
           <div className="sag-va-campo">
-            <label>Data nascimento: </label>
-            <span>01/01/1990</span>
+            <dt>Data nascimento</dt>
+            <dd>01/01/1990</dd>
           </div>
-        </div>
+        </dl>
         <h3 className="sag-va-titulo-linha">Informações de Contato</h3>
 
         <div className="formulario-cadastro">
