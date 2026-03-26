@@ -24,6 +24,7 @@ interface DTPInputProps extends React.HTMLAttributes<HTMLInputElement> {
   isInvalid?: boolean;
   id?: string;
   name?: string;
+  type?: string;
   maxLength?: number;
   minLength?: number;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -57,6 +58,7 @@ const DTPInput = forwardRef<DTPInputHandle, DTPInputProps>(
       onChange,
       maxLength,
       minLength,
+      type = "text",
       ...rest
     }: DTPInputProps,
     ref,
@@ -103,7 +105,7 @@ const DTPInput = forwardRef<DTPInputHandle, DTPInputProps>(
               {inline ? (
                 <>
                   <div className="input-label">
-                    <label>
+                    <label htmlFor={id}>
                       {label}
                       {required && (
                         <i
@@ -123,7 +125,7 @@ const DTPInput = forwardRef<DTPInputHandle, DTPInputProps>(
                       <input
                         id={`${id}`}
                         name={`${name}`}
-                        type="text"
+                        type={type}
                         value={value}
                         required={required}
                         placeholder={placeholder}
@@ -166,7 +168,7 @@ const DTPInput = forwardRef<DTPInputHandle, DTPInputProps>(
                     <input
                       id={`${id}`}
                       name={`${name}`}
-                      type="text"
+                      type={type}
                       value={value}
                       placeholder={placeholder}
                       disabled={disabled}
@@ -210,7 +212,7 @@ const DTPInput = forwardRef<DTPInputHandle, DTPInputProps>(
                     <input
                       id={`${id}`}
                       name={`${name}`}
-                      type="text"
+                      type={type}
                       value={value}
                       required={required}
                       placeholder={placeholder}
@@ -247,7 +249,7 @@ const DTPInput = forwardRef<DTPInputHandle, DTPInputProps>(
                   <input
                     id={`${id}`}
                     name={`${name}`}
-                    type="text"
+                    type={type}
                     value={value}
                     placeholder={placeholder}
                     required={required}

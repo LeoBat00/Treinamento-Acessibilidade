@@ -24,14 +24,14 @@ function Exercicio1() {
       aria-labelledby="titulo-exercicio-1"
     >
       <h2 id="titulo-exercicio-1">Central de downloads de documentos</h2>
-      <span className="subtitulo-pagina">
+      <p className="subtitulo-pagina">
         É o serviço para consultar e baixar documentos disponíveis no sistema.
         Escolha um item na lista para iniciar o download.
-      </span>
+      </p>
 
       <div className="painel-crud">
         <section aria-label="Lista de itens para download">
-          <h4 className="titulo-secao">Itens disponíveis</h4>
+          <h3 className="titulo-secao">Itens disponíveis</h3>
           <ul className="lista-registros">
             {ITENS_DOWNLOAD_MOCK.map((item) => {
               const estaSelecionado = item.id === idSelecionado;
@@ -39,31 +39,23 @@ function Exercicio1() {
               return (
                 <li key={item.id}>
                   <article
-                    id="card-registro"
                     className={`card-registro${estaSelecionado ? " esta-selecionado" : ""}`}
                   >
                     <h4 className="card-registro__nome">{item.nome}</h4>
-                    <p className="texto-secundario">
-                    {/*Strong pode ser problematico*/} 
-                      <strong>Tipo:</strong> {item.tipo}
+                    <p className="texto-secundario" aria-label={`Tipo: ${item.tipo}`}>
+                      <span className="rotulo">Tipo</span> {item.tipo}
                     </p>
-                    <p className="texto-secundario">
-                      <strong>Formato:</strong> {item.formato} ({item.tamanho})
+                    <p className="texto-secundario" aria-label={`Formato: ${item.formato}, ${item.tamanho}`}>
+                      <span className="rotulo">Formato</span> {item.formato} ({item.tamanho})
                     </p>
-                    {/*
-                        onKeyDown={(e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        handleDetalhar(item);
-                        }
-                    }} */}
-                    <div
-                      role="button"
+                    <button
+                      type="button"
                       className="botao-baixar"
+                      aria-label={`Baixar ${item.nome}`}
                       onClick={() => handleDetalhar(item)}
                     >
-                      <i className="fas fa-cloud-download-alt" />
-                    </div>
+                      <i className="fas fa-download" aria-hidden="true" />
+                    </button>
                   </article>
                 </li>
               );
@@ -74,7 +66,7 @@ function Exercicio1() {
 
       <div className="acoes-finais">
         {/* Large -> altura de 48px */}
-        <BrButton className="primary medium" onClick={voltarParaInicio}>
+        <BrButton className="primary large" onClick={voltarParaInicio}>
           Voltar
         </BrButton>
       </div>

@@ -64,13 +64,17 @@ function Exercicio2() {
     // tarefa
     const renderItemSemSubmenu = (secao) => {
         return (
-            <button
-                type="button"
+            <a
+                href="#"
                 className="menu-lateral-erro__botao"
-                onClick={() => selecionarItem(secao.id)}
+                aria-current={itemAtivo === secao.id ? 'true' : undefined}
+                onClick={(e) => {
+                    e.preventDefault()
+                    selecionarItem(secao.id)
+                }}
             >
                 <span>{secao.titulo}</span>
-            </button>
+            </a>
         )
     }
 
@@ -82,6 +86,7 @@ function Exercicio2() {
                 className={`menu-lateral-erro__botao menu-lateral-erro__botao-dropdown${estaAberto ? ' esta-ativo' : ''
                     }`}
                 onClick={() => alternarDropdown(secao.id)}
+                aria-expanded={estaAberto}
                 aria-controls={`sublista-${secao.id}`}
             >
                 <span>{secao.titulo}</span>
@@ -94,17 +99,17 @@ function Exercicio2() {
     }
 
     const renderSubitens = (secao, estaAberto) => {
-        if (!estaAberto) {
-            return null
-        }
-
         // tarefa
         const renderItemSubmenu = (item, indiceSubitem) => {
             return (
                 <a
                     href='#'
                     className="menu-lateral-erro__botao menu-lateral-erro__botao-item"
-                    onClick={() => selecionarItem(item.id)}
+                    aria-current={itemAtivo === item.id ? 'true' : undefined}
+                    onClick={(e) => {
+                        e.preventDefault()
+                        selecionarItem(item.id)
+                    }}
                     ref={indiceSubitem === 0 ? (elemento) => {
                         primeiroSubitemRef.current[secao.id] = elemento
                     } : null}
@@ -119,6 +124,7 @@ function Exercicio2() {
                 id={`sublista-${secao.id}`}
                 className="menu-lateral-erro__sublista"
                 aria-label={`Submenu de ${secao.titulo}`}
+                hidden={!estaAberto}
             >
                 {secao.itens.map((item, indiceSubitem) => (
                     <li key={item.id}>
@@ -132,16 +138,16 @@ function Exercicio2() {
     return (
         <section className="pagina-exercicio-2" aria-labelledby="titulo-exercicio-2">
             <h2 id="titulo-exercicio-2">Navegação entre áreas do cadastro</h2>
-            <span className="subtitulo-pagina">
+            <p className="subtitulo-pagina">
                 Esta tela simula uma navegação lateral com erros propositais de acessibilidade.
                 O objetivo é revisar a estrutura de navegação, incluindo botões de dropdown sem
                 atributos de estado apropriados.
-            </span>
+            </p>
 
             <div className="painel-navegacao-erro">
                 {/* tarefa */}
-                <div className="menu-lateral-erro">
-                    <h3>Seções disponíveis</h3>
+                <nav className="menu-lateral-erro" aria-labelledby="titulo-menu-lateral">
+                    <h3 id="titulo-menu-lateral">Seções disponíveis</h3>
 
                     <ul className="menu-lateral-erro__lista">
                         {secoes.map((secao) => {
@@ -164,13 +170,11 @@ function Exercicio2() {
                             )
                         })}
                     </ul>
-                </div>
+                </nav>
 
                 <article className="conteudo-secao">
-                    <>
-                        <h3>{dadosItemAtivo.titulo}</h3>
-                        <p>{dadosItemAtivo.descricao}</p>
-                    </>
+                    <h3>{dadosItemAtivo.titulo}</h3>
+                    <p>{dadosItemAtivo.descricao}</p>
                 </article>
             </div>
 
